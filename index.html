@@ -4,10 +4,79 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111114">
-  <meta name="description" content="Bodge Job Apps is an independent app developer creating simple, fun and family-friendly apps including Findsy and Just Three Words.">
+  <meta name="description" content="Bodge Job Apps is an independent app developer creating fun games and practical apps, including Findsy and Just Three Words.">
   <title>Bodge Job Apps | Fun apps, questionable engineering</title>
   <link rel="icon" type="image/png" href="assets/bodge-job-logo.png">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .app-category { margin-top: 56px; }
+    .app-category:first-of-type { margin-top: 0; }
+    .category-heading {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      margin-bottom:24px;
+    }
+    .category-icon {
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      flex:0 0 54px;
+      border-radius:16px;
+      font-size:1.5rem;
+      background:linear-gradient(135deg,rgba(159,77,255,.22),rgba(25,191,255,.10));
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .category-heading h3 {
+      margin:0 0 3px;
+      font-size:clamp(1.65rem,3vw,2.35rem);
+    }
+    .category-heading p { margin:0; color:var(--muted); }
+    .serious-category { margin-top:72px; padding-top:54px; border-top:1px solid var(--line); }
+    .serious-category .category-icon {
+      background:linear-gradient(135deg,rgba(184,244,60,.15),rgba(25,191,255,.10));
+    }
+    .serious-placeholder {
+      position:relative;
+      overflow:hidden;
+      padding:38px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius:30px;
+      background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+    }
+    .serious-placeholder::after {
+      content:"";
+      position:absolute;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      right:-100px;
+      top:-110px;
+      background:rgba(184,244,60,.07);
+      filter:blur(12px);
+    }
+    .serious-placeholder h4 { margin:0 0 10px; font-size:1.55rem; }
+    .serious-placeholder p { position:relative; z-index:1; max-width:720px; margin:0; color:var(--muted); }
+    .coming-badge {
+      display:inline-flex;
+      margin-bottom:16px;
+      padding:7px 11px;
+      border-radius:999px;
+      border:1px solid rgba(184,244,60,.28);
+      background:rgba(184,244,60,.07);
+      color:var(--lime);
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      font-size:.72rem;
+      font-weight:900;
+    }
+    @media (max-width:680px) {
+      .app-category { margin-top:42px; }
+      .serious-category { margin-top:54px; padding-top:40px; }
+      .serious-placeholder { padding:28px 24px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -45,7 +114,7 @@
 
           <div class="hero-side">
             <p>
-              We make playful, straightforward apps for families, friends and everyday life —
+              We make straightforward apps for play, work and everyday life —
               the sort of apps you can open and understand without a training course.
             </p>
             <div class="hero-actions">
@@ -58,7 +127,7 @@
         <div class="mini-strip" aria-label="What we care about">
           <span>Simple to use</span>
           <span>Made for real people</span>
-          <span>Fun first</span>
+          <span>Useful or fun</span>
           <span>Questionable engineering*</span>
         </div>
         <p class="asterisk">*The engineering is less questionable than the name suggests.</p>
@@ -69,67 +138,96 @@
       <div class="wrap">
         <div class="section-heading split-heading">
           <div>
-            <p class="eyebrow">Available apps</p>
-            <h2>Things we’ve bodged together.</h2>
+            <p class="eyebrow">Our apps</p>
+            <h2>Two sides of the workbench.</h2>
           </div>
           <p class="section-intro">
-            No giant ecosystems. No “revolutionary platforms”. Just focused apps built around ideas
-            we genuinely thought would be fun.
+            Some apps exist because life could do with more fun. Others exist because something
+            genuinely useful could be simpler. We build both.
           </p>
         </div>
 
-        <div class="app-grid">
-          <article class="app-card app-card-findsy">
-            <div class="app-visual">
-              <img src="assets/findsy-logo.png" alt="Findsy app icon" width="220" height="220">
-              <span class="app-badge">Available</span>
+        <div class="app-category fun-category">
+          <div class="category-heading">
+            <div class="category-icon" aria-hidden="true">🎮</div>
+            <div>
+              <h3>Fun</h3>
+              <p>Games, challenges and things made primarily to make ordinary moments more entertaining.</p>
             </div>
+          </div>
 
-            <div class="app-card-copy">
-              <p class="app-type">Photo challenge game</p>
-              <h3>Findsy</h3>
-              <p class="app-tagline">See it. Find it. Snap it.</p>
-              <p>
-                Turn walks, holidays and ordinary afternoons into a race. One player sets the
-                challenge, everyone else goes hunting, and the quickest successful finder takes the glory.
-              </p>
-              <p>
-                Built for families and friends who like a little competition with their fresh air.
-              </p>
-
-              <div class="app-links">
-                <a class="button button-secondary" href="findsy/">Discover Findsy</a>
-                <a class="text-link" href="findsy/privacy-policy/">Privacy Policy</a>
+          <div class="app-grid">
+            <article class="app-card app-card-findsy">
+              <div class="app-visual">
+                <img src="assets/findsy-logo.png" alt="Findsy app icon" width="220" height="220">
+                <span class="app-badge">Available</span>
               </div>
-            </div>
-          </article>
 
-          <article class="app-card app-card-threewords">
-            <div class="app-visual">
-              <img src="assets/just-three-words-logo.png" alt="Just Three Words app icon" width="220" height="220">
-              <span class="app-badge">Available</span>
-            </div>
+              <div class="app-card-copy">
+                <p class="app-type">Photo challenge game</p>
+                <h3>Findsy</h3>
+                <p class="app-tagline">See it. Find it. Snap it.</p>
+                <p>
+                  Turn walks, holidays and ordinary afternoons into a race. One player sets the
+                  challenge, everyone else goes hunting, and the quickest successful finder takes the glory.
+                </p>
+                <p>
+                  Built for families and friends who like a little competition with their fresh air.
+                </p>
 
-            <div class="app-card-copy">
-              <p class="app-type">Fast party word game</p>
-              <h3>Just Three Words</h3>
-              <p class="app-tagline">Three words. That’s all you’ve got.</p>
-              <p>
-                Just Three Words is a quick-fire game of clues, guesses and very limited vocabulary.
-                Describe the answer, explain the idea or get your team onto the right track — but every
-                clue has to fit into just three words.
-              </p>
-              <p>
-                The rules take seconds to learn. Finding three genuinely useful words is the difficult bit.
-                Perfect for families, friends, parties and those moments when someone says, “What shall we do?”
-              </p>
-
-              <div class="app-links">
-                <a class="button button-secondary" href="just-three-words/">Discover Just Three Words</a>
-                <a class="text-link" href="just-three-words/privacy-policy/">Privacy Policy</a>
+                <div class="app-links">
+                  <a class="button button-secondary" href="findsy/">Discover Findsy</a>
+                  <a class="text-link" href="findsy/privacy-policy/">Privacy Policy</a>
+                </div>
               </div>
+            </article>
+
+            <article class="app-card app-card-threewords">
+              <div class="app-visual">
+                <img src="assets/just-three-words-logo.png" alt="Just Three Words app icon" width="220" height="220">
+                <span class="app-badge">Available</span>
+              </div>
+
+              <div class="app-card-copy">
+                <p class="app-type">Fast party word game</p>
+                <h3>Just Three Words</h3>
+                <p class="app-tagline">Three words. That’s all you’ve got.</p>
+                <p>
+                  Just Three Words is a quick-fire game of clues, guesses and very limited vocabulary.
+                  Describe the answer, explain the idea or get your team onto the right track — but every
+                  clue has to fit into just three words.
+                </p>
+                <p>
+                  The rules take seconds to learn. Finding three genuinely useful words is the difficult bit.
+                  Perfect for families, friends, parties and those moments when someone says, “What shall we do?”
+                </p>
+
+                <div class="app-links">
+                  <a class="button button-secondary" href="just-three-words/">Discover Just Three Words</a>
+                  <a class="text-link" href="just-three-words/privacy-policy/">Privacy Policy</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="app-category serious-category">
+          <div class="category-heading">
+            <div class="category-icon" aria-hidden="true">🛠️</div>
+            <div>
+              <h3>Serious</h3>
+              <p>Practical tools built to solve real problems without making the solution more complicated than the problem.</p>
             </div>
-          </article>
+          </div>
+
+          <div class="serious-placeholder">
+            <span class="coming-badge">In development</span>
+            <h4>The useful bodges are coming.</h4>
+            <p>
+              We’re working on practical apps alongside the games — focused tools for real-world jobs,
+              useful data and everyday problems. They’ll appear here when they’re ready for proper use.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -145,13 +243,12 @@
           </p>
           <p>
             We’re not trying to build the next enormous social network, invent a new form of subscription,
-            or add seventeen features nobody asked for. The goal is simpler: make something enjoyable,
+            or add seventeen features nobody asked for. The goal is simpler: make something enjoyable or useful,
             make it easy to understand and make sure it works.
           </p>
           <p>
-            Most of our ideas start with games, challenges and little experiences that are better when
-            other people are involved. We build, test, discover what we’ve accidentally broken, fix it,
-            then keep improving from real feedback.
+            Some ideas are games. Some solve practical problems. Either way, we build, test, discover what
+            we’ve accidentally broken, fix it, then keep improving from real feedback.
           </p>
         </div>
 
@@ -179,7 +276,7 @@
           <blockquote>Does this really need to be complicated?</blockquote>
           <p>
             Usually, no. We like apps that make sense when you open them. Simple idea. Clear purpose.
-            Good fun. No need to turn your fridge into a social network.
+            Whether it’s useful or just good fun, it should do its job without getting in the way.
           </p>
         </div>
       </div>
@@ -191,8 +288,8 @@
           <p class="eyebrow">What’s next?</p>
           <h2>More bodges are inevitable.</h2>
           <p>
-            Findsy and Just Three Words are only the start. More games, family apps and useful little
-            creations are already finding their way onto the workbench.
+            Findsy and Just Three Words are only the start. More games and more serious tools are already
+            finding their way onto the workbench.
           </p>
         </div>
         <div class="coming-soon-mark" aria-hidden="true">
@@ -223,12 +320,12 @@
           <img src="assets/bodge-job-logo.png" alt="" width="54" height="54">
           <span><strong>Bodge Job</strong><small>APPS</small></span>
         </a>
-        <p class="small">Fun apps. Questionable engineering. Surprisingly functional.</p>
+        <p class="small">Fun apps. Serious tools. Questionable engineering. Surprisingly functional.</p>
       </div>
 
       <div class="footer-links">
         <div>
-          <strong>Apps</strong>
+          <strong>Fun apps</strong>
           <a href="findsy/">Findsy</a>
           <a href="just-three-words/">Just Three Words</a>
         </div>
