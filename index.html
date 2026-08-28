@@ -3,26 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Bodge Job Apps is an independent app developer creating simple, fun and family-friendly apps including Findsy and Just Three Words."
-  >
-
+  <meta name="theme-color" content="#111114">
+  <meta name="description" content="Bodge Job Apps is an independent app developer creating simple, fun and family-friendly apps including Findsy and Just Three Words.">
   <title>Bodge Job Apps | Fun apps, questionable engineering</title>
-
+  <link rel="icon" type="image/png" href="assets/bodge-job-logo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="wrap nav">
-
       <a class="brand" href="./" aria-label="Bodge Job Apps home">
-        <span class="tape">BODGE JOB</span>
-        <span class="brand-sub">APPS</span>
+        <img src="assets/bodge-job-logo.png" alt="" width="58" height="58">
+        <span>
+          <strong>Bodge Job</strong>
+          <small>APPS</small>
+        </span>
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
@@ -30,359 +27,222 @@
         <a href="#apps">Our Apps</a>
         <a href="#contact">Contact</a>
       </nav>
-
     </div>
   </header>
 
-
-  <main>
-
-    <!-- HERO -->
+  <main id="main">
     <section class="hero">
-
-      <div class="wrap hero-inner">
-
-        <p class="eyebrow">Independent app developer</p>
-
-        <h1>
-          Fun apps.<br>
-          Questionable engineering.<br>
-          <span>Surprisingly functional.</span>
-        </h1>
-
-        <p class="intro">
-          We build simple, entertaining apps designed to get people
-          playing, thinking, laughing and doing things together.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button" href="#apps">See our apps</a>
-          <a class="text-link" href="#about">Who are Bodge Job?</a>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section class="about-section" id="about">
-
       <div class="wrap">
-
-        <div class="section-heading">
-          <p class="eyebrow">About us</p>
-          <h2>Apps without the corporate nonsense.</h2>
+        <div class="hero-art">
+          <img src="assets/header.png" alt="Bodge Job — fun, simple apps for everyday life">
         </div>
 
-        <div class="about-grid">
-
-          <div class="about-copy">
-            <p>
-              Bodge Job Apps is a small independent app developer creating
-              straightforward apps around ideas we genuinely think would be
-              fun to use.
-            </p>
-
-            <p>
-              We're not trying to build the next enormous social network or
-              cram an app full of features nobody asked for.
-            </p>
-
-            <p>
-              The idea is much simpler: spot something that could make life
-              a little more entertaining, build it, test it, inevitably
-              bodge something along the way, fix it, and put it out into
-              the world.
-            </p>
-
-            <p>
-              Our apps are particularly inspired by games, challenges and
-              experiences that friends and families can enjoy together.
-            </p>
+        <div class="hero-copy">
+          <div>
+            <p class="eyebrow">Independent app developer</p>
+            <h1>Small apps. Big ideas.<br><span>Zero corporate nonsense.</span></h1>
           </div>
 
-          <div class="about-panel">
-            <p class="panel-label">THE BODGE JOB METHOD</p>
-
-            <ol class="bodge-list">
-              <li>
-                <strong>Have an idea.</strong>
-                <span>Usually at an inconvenient time.</span>
-              </li>
-
-              <li>
-                <strong>Build it.</strong>
-                <span>Try not to break anything important.</span>
-              </li>
-
-              <li>
-                <strong>Test it.</strong>
-                <span>Discover several things we definitely broke.</span>
-              </li>
-
-              <li>
-                <strong>Fix it.</strong>
-                <span>Mostly.</span>
-              </li>
-
-              <li>
-                <strong>Release it.</strong>
-                <span>Surprisingly functional.</span>
-              </li>
-            </ol>
+          <div class="hero-side">
+            <p>
+              We make playful, straightforward apps for families, friends and everyday life —
+              the sort of apps you can open and understand without a training course.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#apps">Explore the apps</a>
+              <a class="text-link" href="#about">Why “Bodge Job”?</a>
+            </div>
           </div>
-
         </div>
 
+        <div class="mini-strip" aria-label="What we care about">
+          <span>Simple to use</span>
+          <span>Made for real people</span>
+          <span>Fun first</span>
+          <span>Questionable engineering*</span>
+        </div>
+        <p class="asterisk">*The engineering is less questionable than the name suggests.</p>
       </div>
-
     </section>
 
-
-    <!-- APPS -->
     <section class="apps-section" id="apps">
-
       <div class="wrap">
-
-        <div class="section-heading">
-          <p class="eyebrow">Available apps</p>
-          <h2>Things we've bodged together.</h2>
-
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Available apps</p>
+            <h2>Things we’ve bodged together.</h2>
+          </div>
           <p class="section-intro">
-            Small apps built around simple ideas — because sometimes
-            that's all an app needs to be.
+            No giant ecosystems. No “revolutionary platforms”. Just focused apps built around ideas
+            we genuinely thought would be fun.
           </p>
         </div>
-
 
         <div class="app-grid">
+          <article class="app-card app-card-findsy">
+            <div class="app-visual">
+              <img src="assets/findsy-logo.png" alt="Findsy app icon" width="220" height="220">
+              <span class="app-badge">Available</span>
+            </div>
 
-          <!-- FINDSY -->
-          <article class="app-card">
-
-            <div class="app-card-top">
-
-              <div class="app-badge">
-                Available
-              </div>
-
+            <div class="app-card-copy">
               <p class="app-type">Photo challenge game</p>
-
               <h3>Findsy</h3>
-
-              <p class="app-tagline">
-                See it. Find it. Snap it.
-              </p>
-
+              <p class="app-tagline">See it. Find it. Snap it.</p>
               <p>
-                Findsy turns the world around you into a photo challenge.
-                One player chooses something to find, everyone else heads
-                off looking for it, and the race is on.
+                Turn walks, holidays and ordinary afternoons into a race. One player sets the
+                challenge, everyone else goes hunting, and the quickest successful finder takes the glory.
               </p>
-
               <p>
-                Designed for families and friends, Findsy makes walks,
-                holidays, days out and even boring afternoons a little more
-                competitive.
+                Built for families and friends who like a little competition with their fresh air.
               </p>
 
-            </div>
-
-            <div class="app-links">
-              <a class="button" href="findsy/">
-                Discover Findsy
-              </a>
-
-              <a class="text-link" href="findsy/privacy-policy/">
-                Privacy Policy
-              </a>
-            </div>
-
-          </article>
-
-
-          <!-- JUST THREE WORDS -->
-          <article class="app-card">
-
-            <div class="app-card-top">
-
-              <div class="app-badge">
-                Available
+              <div class="app-links">
+                <a class="button button-secondary" href="findsy/">Discover Findsy</a>
+                <a class="text-link" href="findsy/privacy-policy/">Privacy Policy</a>
               </div>
-
-              <p class="app-type">Word game</p>
-
-              <h3>Just Three Words</h3>
-
-              <p class="app-tagline">
-                Three words. That's all you've got.
-              </p>
-
-              <p>
-                Just Three Words is a simple word game built around one
-                restriction: whatever you're trying to say, describe or
-                explain, you've only got three words to do it.
-              </p>
-
-              <p>
-                Quick to understand, easy to play and considerably harder
-                than it sounds.
-              </p>
-
             </div>
-
-            <div class="app-links">
-              <a class="button" href="just-three-words/">
-                Discover Just Three Words
-              </a>
-
-              <a class="text-link" href="just-three-words/privacy-policy/">
-                Privacy Policy
-              </a>
-            </div>
-
           </article>
 
+          <article class="app-card app-card-threewords">
+            <div class="app-visual">
+              <img src="assets/just-three-words-logo.png" alt="Just Three Words app icon" width="220" height="220">
+              <span class="app-badge">Available</span>
+            </div>
+
+            <div class="app-card-copy">
+              <p class="app-type">Fast party word game</p>
+              <h3>Just Three Words</h3>
+              <p class="app-tagline">Three words. That’s all you’ve got.</p>
+              <p>
+                Just Three Words is a quick-fire game of clues, guesses and very limited vocabulary.
+                Describe the answer, explain the idea or get your team onto the right track — but every
+                clue has to fit into just three words.
+              </p>
+              <p>
+                The rules take seconds to learn. Finding three genuinely useful words is the difficult bit.
+                Perfect for families, friends, parties and those moments when someone says, “What shall we do?”
+              </p>
+
+              <div class="app-links">
+                <a class="button button-secondary" href="just-three-words/">Discover Just Three Words</a>
+                <a class="text-link" href="just-three-words/privacy-policy/">Privacy Policy</a>
+              </div>
+            </div>
+          </article>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- PHILOSOPHY -->
-    <section class="philosophy-section">
-
-      <div class="wrap philosophy-inner">
-
-        <p class="eyebrow">Our philosophy</p>
-
-        <blockquote>
-          “Does this really need to be complicated?”
-        </blockquote>
-
-        <p>
-          Usually, no.
-        </p>
-
-        <p>
-          We like apps that you can understand without watching a
-          ten-minute tutorial, creating seventeen accounts or agreeing
-          to turn your fridge into a social network.
-        </p>
-
-        <p>
-          Simple idea. Clear purpose. Good fun.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- COMING SOON -->
-    <section class="coming-soon-section">
-
-      <div class="wrap coming-soon">
-
-        <div>
-          <p class="eyebrow">What's next?</p>
-
-          <h2>More bodges are inevitable.</h2>
-
+    <section class="about-section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">About us</p>
+          <h2>Apps without the boardroom.</h2>
+          <p class="lead">
+            Bodge Job Apps is a small independent developer building straightforward apps around
+            ideas we actually want to use ourselves.
+          </p>
           <p>
-            Findsy and Just Three Words are only the beginning.
-            We're already experimenting with more ideas for games,
-            family apps and other useful little creations.
+            We’re not trying to build the next enormous social network, invent a new form of subscription,
+            or add seventeen features nobody asked for. The goal is simpler: make something enjoyable,
+            make it easy to understand and make sure it works.
+          </p>
+          <p>
+            Most of our ideas start with games, challenges and little experiences that are better when
+            other people are involved. We build, test, discover what we’ve accidentally broken, fix it,
+            then keep improving from real feedback.
           </p>
         </div>
 
-        <div class="coming-soon-mark">
+        <div class="method-card">
+          <div class="method-title">
+            <span class="dot"></span>
+            <p>The Bodge Job method</p>
+          </div>
+          <ol class="bodge-list">
+            <li><b>01</b><span><strong>Have an idea.</strong><small>Usually at an inconvenient time.</small></span></li>
+            <li><b>02</b><span><strong>Build it.</strong><small>Try not to break anything important.</small></span></li>
+            <li><b>03</b><span><strong>Test it.</strong><small>Discover the things we definitely broke.</small></span></li>
+            <li><b>04</b><span><strong>Fix it.</strong><small>Properly. Mostly.</small></span></li>
+            <li><b>05</b><span><strong>Release it.</strong><small>Surprisingly functional.</small></span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy-section">
+      <div class="wrap philosophy-inner">
+        <div class="quote-mark">“</div>
+        <div>
+          <p class="eyebrow">Our philosophy</p>
+          <blockquote>Does this really need to be complicated?</blockquote>
+          <p>
+            Usually, no. We like apps that make sense when you open them. Simple idea. Clear purpose.
+            Good fun. No need to turn your fridge into a social network.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="coming-soon-section">
+      <div class="wrap coming-soon">
+        <div>
+          <p class="eyebrow">What’s next?</p>
+          <h2>More bodges are inevitable.</h2>
+          <p>
+            Findsy and Just Three Words are only the start. More games, family apps and useful little
+            creations are already finding their way onto the workbench.
+          </p>
+        </div>
+        <div class="coming-soon-mark" aria-hidden="true">
           <span>?</span>
         </div>
-
       </div>
-
     </section>
 
-
-    <!-- CONTACT -->
     <section class="contact-section" id="contact">
-
       <div class="wrap contact-inner">
-
-        <p class="eyebrow">Get in touch</p>
-
-        <h2>Found a bug?</h2>
-
-        <p>
-          Given the name, there's always a chance.
-        </p>
-
-        <p>
-          If you've found a problem with one of our apps, have feedback
-          or just want to say hello, we'd be happy to hear from you.
-        </p>
-
-        <!-- Replace with your preferred contact email when ready -->
-        <a class="button" href="mailto:support@bodgejobapps.com">
-          Contact Bodge Job Apps
-        </a>
-
+        <img src="assets/bodge-job-logo.png" alt="" width="120" height="120">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Found something we bodged?</h2>
+          <p>
+            Bug report, feedback, app idea or just a hello — we’d be happy to hear from you.
+          </p>
+          <a class="button" href="mailto:support@bodgejobapps.com">Contact Bodge Job Apps</a>
+        </div>
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- FOOTER -->
   <footer class="site-footer">
-
     <div class="wrap footer-inner">
-
       <div class="footer-brand">
         <a class="brand" href="./" aria-label="Bodge Job Apps home">
-          <span class="tape">BODGE JOB</span>
-          <span class="brand-sub">APPS</span>
+          <img src="assets/bodge-job-logo.png" alt="" width="54" height="54">
+          <span><strong>Bodge Job</strong><small>APPS</small></span>
         </a>
-
-        <p class="small">
-          Fun apps. Questionable engineering. Surprisingly functional.
-        </p>
+        <p class="small">Fun apps. Questionable engineering. Surprisingly functional.</p>
       </div>
 
-
       <div class="footer-links">
-
         <div>
           <strong>Apps</strong>
           <a href="findsy/">Findsy</a>
           <a href="just-three-words/">Just Three Words</a>
         </div>
-
         <div>
           <strong>Legal</strong>
           <a href="findsy/privacy-policy/">Findsy Privacy Policy</a>
-          <a href="just-three-words/privacy-policy/">
-            Just Three Words Privacy Policy
-          </a>
+          <a href="just-three-words/privacy-policy/">Just Three Words Privacy Policy</a>
         </div>
-
       </div>
-
     </div>
-
 
     <div class="wrap footer-bottom">
-      <p class="small">
-        © 2026 Bodge Job Apps. Built with enthusiasm, caffeine and
-        occasional bodging.
-      </p>
+      <p class="small">© 2026 Bodge Job Apps. Built with enthusiasm, caffeine and occasional bodging.</p>
     </div>
-
   </footer>
-
 </body>
 </html>
