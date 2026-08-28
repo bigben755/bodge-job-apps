@@ -1,1 +1,0 @@
-Bodge Job website image assets.
