@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111114">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin | Bodge Job Apps</title>
+  <link rel="icon" type="image/png" href="assets/bodge-job-logo.png">
+  <style>
+    :root{
+      --bg:#0c0c0f;--panel:#151519;--panel2:#1c1c22;--ink:#f5f5f3;--muted:#a6a6ad;
+      --line:rgba(255,255,255,.10);--purple:#9f4dff;--cyan:#19bfff;--lime:#b8f43c;
+      --danger:#ff6b6b;--shadow:0 24px 70px rgba(0,0,0,.34);--radius:22px;
+    }
+    *{box-sizing:border-box}html{color-scheme:dark}body{margin:0;background:radial-gradient(circle at 10% 0%,rgba(159,77,255,.14),transparent 28%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+    button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+    .topbar{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(12,12,15,.88);backdrop-filter:blur(18px)}
+    .topbar-inner{max-width:1440px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}.brand img{width:44px;height:44px;border-radius:50%}.brand strong{display:block;font-size:1rem}.brand small{display:block;color:var(--muted);letter-spacing:.16em;font-size:.62rem;font-weight:800}
+    .top-actions{display:flex;align-items:center;gap:10px}.site-link,.ghost,.primary,.danger{border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:800;text-decoration:none;transition:.18s ease}
+    .site-link,.ghost{background:rgba(255,255,255,.04);color:var(--ink)}.primary{border-color:transparent;background:linear-gradient(135deg,var(--purple),#7447ff);color:white}.danger{background:rgba(255,107,107,.07);border-color:rgba(255,107,107,.28);color:#ff9a9a}
+    .site-link:hover,.ghost:hover{background:rgba(255,255,255,.08)}.primary:hover{transform:translateY(-1px)}button:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+    .login-shell{min-height:calc(100vh - 71px);display:grid;place-items:center;padding:34px 20px}.login-card{width:min(100%,480px);padding:34px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));box-shadow:var(--shadow)}
+    .login-logo{width:82px;height:82px;border-radius:50%;margin-bottom:20px}.eyebrow{margin:0 0 8px;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:900;color:var(--lime)}h1,h2,h3,p{margin-top:0}.login-card h1{font-size:clamp(2rem,7vw,3rem);line-height:1;margin-bottom:12px}.muted{color:var(--muted)}
+    .field{display:grid;gap:7px;margin:18px 0}.field label{font-size:.82rem;font-weight:850}.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:13px;background:#101014;color:var(--ink);padding:13px 14px;outline:none}.field input:focus,.field textarea:focus{border-color:var(--purple);box-shadow:0 0 0 4px rgba(159,77,255,.12)}
+    .code-row{display:grid;grid-template-columns:1fr auto;gap:10px}.status{min-height:23px;margin-top:12px;font-size:.88rem;color:var(--muted)}.status.error{color:#ff9a9a}.status.ok{color:var(--lime)}
+    .app{max-width:1440px;margin:auto;padding:22px;display:grid;grid-template-columns:380px minmax(0,1fr);gap:20px;min-height:calc(100vh - 71px)}
+    .inbox,.detail{border:1px solid var(--line);background:rgba(21,21,25,.92);border-radius:var(--radius);overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.18)}
+    .inbox-head{padding:20px;border-bottom:1px solid var(--line)}.inbox-title{display:flex;align-items:end;justify-content:space-between;gap:12px}.inbox-title h1{margin:0;font-size:1.55rem}.count{font-size:.82rem;color:var(--muted)}
+    .filters{display:flex;gap:7px;margin-top:15px;overflow:auto}.filter{white-space:nowrap;border:1px solid var(--line);background:transparent;color:var(--muted);padding:7px 10px;border-radius:999px;font-weight:800;font-size:.76rem}.filter.active{background:rgba(159,77,255,.15);border-color:rgba(159,77,255,.35);color:#d8b8ff}
+    .list{max-height:calc(100vh - 185px);overflow:auto}.empty{padding:38px 24px;text-align:center;color:var(--muted)}
+    .row{width:100%;display:block;text-align:left;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);padding:17px 18px}.row:hover,.row.active{background:rgba(255,255,255,.045)}.row-top{display:flex;justify-content:space-between;gap:12px}.row-name{font-weight:900}.row-time{color:var(--muted);font-size:.73rem;white-space:nowrap}.row-topic{margin:5px 0 4px;font-size:.87rem;font-weight:750;color:#d6d6da}.row-preview{margin:0;color:var(--muted);font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row.new .row-name::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);margin-right:8px;box-shadow:0 0 12px rgba(184,244,60,.5)}
+    .detail{padding:0}.detail-empty{height:100%;min-height:500px;display:grid;place-items:center;padding:40px;text-align:center;color:var(--muted)}.detail-content{min-height:100%}.detail-head{padding:25px 28px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.detail-head h2{margin:3px 0 7px;font-size:clamp(1.55rem,3vw,2.25rem)}.email-link{color:#bda0ff;text-decoration:none}.email-link:hover{text-decoration:underline}.badge{display:inline-flex;padding:6px 9px;border-radius:999px;border:1px solid var(--line);text-transform:uppercase;letter-spacing:.08em;font-size:.65rem;font-weight:900}.badge-new{color:var(--lime);border-color:rgba(184,244,60,.25);background:rgba(184,244,60,.06)}.badge-read{color:#9edcff}.badge-replied{color:#d7bbff}.badge-archived{color:var(--muted)}
+    .detail-body{padding:28px;display:grid;gap:25px}.meta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.meta{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:14px;padding:12px}.meta small{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850;margin-bottom:3px}.message{white-space:pre-wrap;line-height:1.72;padding:22px;border:1px solid var(--line);border-radius:17px;background:#101014}.thread{display:grid;gap:12px}.thread h3,.reply-box h3{margin:0 0 4px}.reply-item{padding:17px;border:1px solid rgba(159,77,255,.2);border-radius:15px;background:rgba(159,77,255,.055)}.reply-item small{display:block;color:var(--muted);margin-bottom:8px}.reply-item p{margin:0;white-space:pre-wrap;line-height:1.6}.reply-box{padding-top:6px}.reply-box textarea{min-height:160px;resize:vertical}.reply-actions{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.detail-controls{display:flex;gap:8px;flex-wrap:wrap}
+    @media(max-width:900px){.app{grid-template-columns:1fr;padding:12px}.list{max-height:420px}.detail-empty{min-height:250px}.meta-grid{grid-template-columns:1fr}.topbar-inner{padding:10px 13px}.site-link{display:none}}
+    @media(max-width:520px){.login-card{padding:26px 20px}.code-row{grid-template-columns:1fr}.detail-head,.detail-body{padding:20px}.brand span{display:none}.top-actions{gap:6px}.ghost,.danger{padding:9px 11px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./"><img src="assets/bodge-job-logo.png" alt=""><span><strong>Bodge Job</strong><small>ADMIN</small></span></a>
+      <div class="top-actions">
+        <a class="site-link" href="./">View website</a>
+        <button class="ghost hidden" id="refresh-btn" type="button">Refresh</button>
+        <button class="ghost hidden" id="logout-btn" type="button">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="login-shell" id="login-view">
+      <div class="login-card">
+        <img class="login-logo" src="assets/bodge-job-logo.png" alt="Bodge Job Apps">
+        <p class="eyebrow">Admin access</p>
+        <h1>Enquiry inbox</h1>
+        <p class="muted">Admin access is restricted to <strong>hello@bodge-job.com</strong>. Request a one-time code and we’ll email it to you.</p>
+        <div id="request-panel">
+          <button class="primary" id="request-code" type="button">Email me a login code</button>
+        </div>
+        <div id="verify-panel" class="hidden">
+          <div class="field"><label for="login-code">6-digit code</label><div class="code-row"><input id="login-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456"><button class="primary" id="verify-code" type="button">Log in</button></div></div>
+          <button class="ghost" id="resend-code" type="button">Send another code</button>
+        </div>
+        <div class="status" id="login-status" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="app hidden" id="admin-view">
+      <aside class="inbox">
+        <div class="inbox-head">
+          <div class="inbox-title"><h1>Enquiries</h1><span class="count" id="inbox-count">0</span></div>
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="active">Inbox</button>
+            <button class="filter" data-filter="new">New</button>
+            <button class="filter" data-filter="replied">Replied</button>
+            <button class="filter" data-filter="archived">Archived</button>
+            <button class="filter" data-filter="all">All</button>
+          </div>
+        </div>
+        <div class="list" id="enquiry-list"></div>
+      </aside>
+
+      <section class="detail">
+        <div class="detail-empty" id="detail-empty"><div><h2>Select an enquiry</h2><p>Choose a message from the inbox to read it and reply.</p></div></div>
+        <div class="detail-content hidden" id="detail-content">
+          <div class="detail-head">
+            <div><span class="badge" id="detail-badge"></span><h2 id="detail-name"></h2><a class="email-link" id="detail-email" href="#"></a></div>
+            <div class="detail-controls"><button class="danger" id="archive-btn" type="button">Archive</button></div>
+          </div>
+          <div class="detail-body">
+            <div class="meta-grid">
+              <div class="meta"><small>Topic</small><span id="detail-topic"></span></div>
+              <div class="meta"><small>Received</small><span id="detail-date"></span></div>
+              <div class="meta"><small>Status</small><span id="detail-status"></span></div>
+            </div>
+            <div><h3>Message</h3><div class="message" id="detail-message"></div></div>
+            <div class="thread hidden" id="reply-thread"><h3>Replies sent</h3><div id="reply-list"></div></div>
+            <div class="reply-box">
+              <h3>Reply</h3>
+              <p class="muted">This sends from <strong>hello@bodge-job.com</strong> and saves a copy against this enquiry.</p>
+              <div class="field"><textarea id="reply-text" placeholder="Type your reply here..."></textarea></div>
+              <div class="reply-actions"><div class="status" id="reply-status" role="status" aria-live="polite"></div><button class="primary" id="send-reply" type="button">Send reply</button></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const API = 'https://aovgfefhybcptxdauyqy.supabase.co/functions/v1/admin-enquiries';
+    const TOKEN_KEY = 'bodge_job_admin_session';
+    let token = localStorage.getItem(TOKEN_KEY) || '';
+    let enquiries = [];
+    let replies = [];
+    let selectedId = null;
+    let currentFilter = 'active';
+
+    const $ = id => document.getElementById(id);
+    const loginView = $('login-view');
+    const adminView = $('admin-view');
+    const loginStatus = $('login-status');
+
+    function setStatus(el, text, type='') { el.textContent = text; el.className = 'status' + (type ? ' ' + type : ''); }
+    function fmtDate(value) { return new Intl.DateTimeFormat('en-GB',{dateStyle:'medium',timeStyle:'short'}).format(new Date(value)); }
+    function relative(value) {
+      const ms = Date.now() - new Date(value).getTime(); const mins=Math.floor(ms/60000);
+      if(mins<1)return 'just now'; if(mins<60)return mins+'m'; const hrs=Math.floor(mins/60); if(hrs<24)return hrs+'h'; const days=Math.floor(hrs/24); return days+'d';
+    }
+
+    async function api(action, options={}) {
+      const headers = {'Content-Type':'application/json', ...(options.headers||{})};
+      if (token) headers.Authorization = 'Bearer ' + token;
+      const res = await fetch(API + '?action=' + encodeURIComponent(action), {...options, headers});
+      const data = await res.json().catch(()=>({}));
+      if (res.status === 401 && action !== 'verify-code') { clearSession(); throw new Error('Your admin session has expired. Please log in again.'); }
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      return data;
+    }
+
+    function clearSession(){ token=''; localStorage.removeItem(TOKEN_KEY); loginView.classList.remove('hidden'); adminView.classList.add('hidden'); $('refresh-btn').classList.add('hidden'); $('logout-btn').classList.add('hidden'); }
+    function showAdmin(){ loginView.classList.add('hidden'); adminView.classList.remove('hidden'); $('refresh-btn').classList.remove('hidden'); $('logout-btn').classList.remove('hidden'); }
+
+    async function requestCode(){
+      const btn=$('request-code'); btn.disabled=true; $('resend-code').disabled=true; setStatus(loginStatus,'Sending code…');
+      try { await api('request-code',{method:'POST',body:'{}'}); $('request-panel').classList.add('hidden'); $('verify-panel').classList.remove('hidden'); setStatus(loginStatus,'Code sent to hello@bodge-job.com. It expires in 10 minutes.','ok'); $('login-code').focus(); }
+      catch(e){ setStatus(loginStatus,e.message,'error'); }
+      finally{ btn.disabled=false; $('resend-code').disabled=false; }
+    }
+
+    async function verifyCode(){
+      const code=$('login-code').value.trim(); const btn=$('verify-code'); btn.disabled=true; setStatus(loginStatus,'Checking code…');
+      try { const data=await api('verify-code',{method:'POST',body:JSON.stringify({code})}); token=data.token; localStorage.setItem(TOKEN_KEY,token); setStatus(loginStatus,''); showAdmin(); await loadInbox(); }
+      catch(e){ setStatus(loginStatus,e.message,'error'); }
+      finally{ btn.disabled=false; }
+    }
+
+    async function loadInbox(){
+      $('refresh-btn').disabled=true;
+      try { const data=await api('list'); enquiries=data.enquiries||[]; replies=data.replies||[]; renderList(); if(selectedId){ const still=enquiries.find(x=>x.id===selectedId); if(still) renderDetail(still); else closeDetail(); } }
+      catch(e){ alert(e.message); }
+      finally{ $('refresh-btn').disabled=false; }
+    }
+
+    function filtered(){
+      if(currentFilter==='active') return enquiries.filter(e=>e.status!=='archived');
+      if(currentFilter==='all') return enquiries;
+      return enquiries.filter(e=>e.status===currentFilter);
+    }
+
+    function renderList(){
+      const list=$('enquiry-list'); list.replaceChildren(); const items=filtered(); $('inbox-count').textContent=items.length+' message'+(items.length===1?'':'s');
+      if(!items.length){ const empty=document.createElement('div'); empty.className='empty'; empty.textContent='Nothing here yet.'; list.append(empty); return; }
+      items.forEach(e=>{
+        const b=document.createElement('button'); b.type='button'; b.className='row '+e.status+(e.id===selectedId?' active':'');
+        const top=document.createElement('div'); top.className='row-top'; const name=document.createElement('span'); name.className='row-name'; name.textContent=e.name; const time=document.createElement('span'); time.className='row-time'; time.textContent=relative(e.created_at); top.append(name,time);
+        const topic=document.createElement('div'); topic.className='row-topic'; topic.textContent=e.topic; const preview=document.createElement('p'); preview.className='row-preview'; preview.textContent=e.message.replace(/\s+/g,' ');
+        b.append(top,topic,preview); b.addEventListener('click',()=>selectEnquiry(e.id)); list.append(b);
+      });
+    }
+
+    async function selectEnquiry(id){
+      selectedId=id; const e=enquiries.find(x=>x.id===id); if(!e)return; renderList(); renderDetail(e);
+      if(e.status==='new') { try{ await api('read',{method:'POST',body:JSON.stringify({id})}); e.status='read'; e.read_at=new Date().toISOString(); renderList(); renderDetail(e); }catch(err){ console.warn(err); } }
+    }
+
+    function badgeClass(status){ return 'badge badge-'+status; }
+    function renderDetail(e){
+      $('detail-empty').classList.add('hidden'); $('detail-content').classList.remove('hidden');
+      const badge=$('detail-badge'); badge.className=badgeClass(e.status); badge.textContent=e.status;
+      $('detail-name').textContent=e.name; $('detail-email').textContent=e.email; $('detail-email').href='mailto:'+e.email; $('detail-topic').textContent=e.topic; $('detail-date').textContent=fmtDate(e.created_at); $('detail-status').textContent=e.status; $('detail-message').textContent=e.message;
+      const ownReplies=replies.filter(r=>r.enquiry_id===e.id); const thread=$('reply-thread'); const list=$('reply-list'); list.replaceChildren();
+      if(ownReplies.length){ thread.classList.remove('hidden'); ownReplies.forEach(r=>{ const item=document.createElement('div'); item.className='reply-item'; const small=document.createElement('small'); small.textContent='Sent '+fmtDate(r.created_at)+' to '+r.sent_to; const p=document.createElement('p'); p.textContent=r.body; item.append(small,p); list.append(item); }); } else thread.classList.add('hidden');
+      $('archive-btn').textContent=e.status==='archived'?'Archived':'Archive'; $('archive-btn').disabled=e.status==='archived'; setStatus($('reply-status'),'');
+    }
+
+    function closeDetail(){ selectedId=null; $('detail-empty').classList.remove('hidden'); $('detail-content').classList.add('hidden'); }
+
+    async function sendReply(){
+      const text=$('reply-text').value.trim(); if(!selectedId||!text)return; const btn=$('send-reply'); btn.disabled=true; setStatus($('reply-status'),'Sending…');
+      try{ await api('reply',{method:'POST',body:JSON.stringify({id:selectedId,reply:text})}); $('reply-text').value=''; setStatus($('reply-status'),'Reply sent.','ok'); await loadInbox(); }
+      catch(e){ setStatus($('reply-status'),e.message,'error'); }
+      finally{ btn.disabled=false; }
+    }
+
+    async function archiveSelected(){ if(!selectedId)return; if(!confirm('Archive this enquiry?'))return; try{ await api('archive',{method:'POST',body:JSON.stringify({id:selectedId})}); await loadInbox(); }catch(e){ alert(e.message); } }
+    async function logout(){ try{ await api('logout',{method:'POST',body:'{}'}); }catch{} clearSession(); }
+
+    $('request-code').addEventListener('click',requestCode); $('resend-code').addEventListener('click',requestCode); $('verify-code').addEventListener('click',verifyCode); $('login-code').addEventListener('keydown',e=>{if(e.key==='Enter')verifyCode();}); $('refresh-btn').addEventListener('click',loadInbox); $('logout-btn').addEventListener('click',logout); $('send-reply').addEventListener('click',sendReply); $('archive-btn').addEventListener('click',archiveSelected);
+    $('filters').addEventListener('click',e=>{ const b=e.target.closest('[data-filter]'); if(!b)return; currentFilter=b.dataset.filter; document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b)); renderList(); });
+
+    if(token){ showAdmin(); loadInbox().catch(()=>clearSession()); }
+  </script>
+</body>
+</html>
