@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#100b22">
-  <meta name="description" content="Findsy by Bodge Job Apps — a family multiplayer photo game inspired by I Spy. Hide something in a photo, reveal the first letter and race to find it first.">
+  <meta name="description" content="Findsy by Bodge Job Apps — a family multiplayer photo game inspired by I Spy. Currently in closed testing and available soon.">
   <title>Findsy | Bodge Job Apps</title>
 
   <link rel="icon" type="image/png" href="../assets/findsy-logo.png">
@@ -14,7 +14,6 @@
     :root {
       --findsy-bg: #0d091b;
       --findsy-panel: #151226;
-      --findsy-panel-2: #1c1830;
       --findsy-purple: #7037ff;
       --findsy-purple-2: #9c49ff;
       --findsy-lime: #baff31;
@@ -28,9 +27,7 @@
         var(--findsy-bg);
     }
 
-    .findsy-header .main-nav a:last-child {
-      color: var(--findsy-lime);
-    }
+    .findsy-header .main-nav a:last-child { color: var(--findsy-lime); }
 
     .findsy-hero {
       position: relative;
@@ -61,25 +58,38 @@
       align-items: center;
     }
 
-    .findsy-kicker {
+    .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border: 1px solid rgba(186,255,49,.28);
+      border-radius: 999px;
       color: var(--findsy-lime);
+      background: rgba(186,255,49,.07);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .72rem;
+      font-weight: 950;
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--findsy-lime);
+      box-shadow: 0 0 16px rgba(186,255,49,.65);
+    }
+
+    .findsy-kicker {
+      margin-bottom: 14px;
+      color: #d9d4e9;
       text-transform: uppercase;
       letter-spacing: .14em;
       font-size: .76rem;
       font-weight: 950;
-    }
-
-    .findsy-kicker::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--findsy-lime);
-      box-shadow: 0 0 18px rgba(186,255,49,.65);
     }
 
     .findsy-title {
@@ -89,9 +99,7 @@
       letter-spacing: -.07em;
     }
 
-    .findsy-title span {
-      color: var(--findsy-lime);
-    }
+    .findsy-title span { color: var(--findsy-lime); }
 
     .findsy-lead {
       max-width: 720px;
@@ -139,12 +147,12 @@
       content: "";
       position: absolute;
       border-radius: 42px;
-      transform: rotate(8deg);
     }
 
     .findsy-logo-stage::before {
       width: 82%;
       aspect-ratio: 1;
+      transform: rotate(8deg);
       border: 1px solid rgba(156,73,255,.35);
       background: linear-gradient(145deg, rgba(112,55,255,.16), rgba(255,255,255,.025));
     }
@@ -173,9 +181,7 @@
       margin-bottom: 46px;
     }
 
-    .findsy-section-heading .eyebrow {
-      color: var(--findsy-lime);
-    }
+    .findsy-section-heading .eyebrow { color: var(--findsy-lime); }
 
     .findsy-section-heading p:last-child {
       margin: 0;
@@ -190,10 +196,8 @@
     }
 
     .step-card {
-      position: relative;
       min-height: 270px;
       padding: 28px 25px;
-      overflow: hidden;
       border: 1px solid rgba(255,255,255,.10);
       border-radius: 26px;
       background: linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.02));
@@ -215,7 +219,6 @@
     .step-card:nth-child(4) .step-number {
       color: #101010;
       background: var(--findsy-lime);
-      box-shadow: 0 12px 28px rgba(186,255,49,.12);
     }
 
     .step-card h3 {
@@ -231,166 +234,62 @@
       line-height: 1.55;
     }
 
-    .demo-wrap {
+    .example-panel {
       display: grid;
       grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
       gap: clamp(38px, 7vw, 86px);
       align-items: center;
     }
 
-    .demo-copy p:not(.eyebrow) {
+    .example-copy p:not(.eyebrow) {
       color: var(--findsy-soft);
       font-size: 1.06rem;
     }
 
-    .demo-copy strong {
-      color: #fff;
-    }
+    .example-copy strong { color: #fff; }
 
-    .game-card {
-      position: relative;
-      overflow: hidden;
+    .example-card {
+      padding: clamp(28px, 5vw, 46px);
       border: 1px solid rgba(255,255,255,.12);
-      border-radius: 34px;
+      border-radius: 30px;
       background:
-        radial-gradient(circle at 82% 0%, rgba(112,55,255,.32), transparent 17rem),
-        #11101d;
-      box-shadow: 0 28px 80px rgba(0,0,0,.32);
+        radial-gradient(circle at 90% 0%, rgba(112,55,255,.26), transparent 18rem),
+        var(--findsy-panel);
+      box-shadow: 0 24px 70px rgba(0,0,0,.24);
     }
 
-    .game-top {
-      display: flex;
-      align-items: start;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 30px 30px 22px;
-    }
-
-    .live-label {
-      display: block;
+    .example-letter {
       color: var(--findsy-lime);
-      font-size: .72rem;
-      font-weight: 950;
-      letter-spacing: .11em;
       text-transform: uppercase;
-    }
-
-    .game-top h3 {
-      margin: 5px 0 0;
-      font-size: clamp(1.9rem, 4vw, 3.15rem);
-    }
-
-    .timer {
-      flex: 0 0 auto;
-      padding: 10px 15px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--findsy-purple), var(--findsy-purple-2));
-      font-size: 1.35rem;
-      font-weight: 950;
-    }
-
-    .photo-demo {
-      position: relative;
-      min-height: 315px;
-      margin: 0 20px;
-      overflow: hidden;
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 70% 20%, rgba(255,238,174,.9) 0 8px, transparent 9px),
-        linear-gradient(180deg, #2c3150 0 40%, #221c28 40% 100%);
-    }
-
-    .photo-demo::before {
-      content: "";
-      position: absolute;
-      left: 20%;
-      bottom: 30px;
-      width: 15px;
-      height: 190px;
-      border-radius: 12px;
-      transform: rotate(25deg);
-      background: #0b0d12;
-      box-shadow: 70px 110px 0 -3px #0b0d12;
-    }
-
-    .photo-demo::after {
-      content: "";
-      position: absolute;
-      left: 17%;
-      top: 54px;
-      width: 180px;
-      height: 38px;
-      border-radius: 22px;
-      transform: rotate(-10deg);
-      background: linear-gradient(90deg, #11151b, #2b3038 70%, #101216);
-      box-shadow: 0 10px 35px rgba(0,0,0,.3);
-    }
-
-    .photo-demo-label {
-      position: absolute;
-      right: 20px;
-      bottom: 18px;
-      z-index: 2;
-      padding: 9px 12px;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
-      color: #ddd;
-      background: rgba(10,10,15,.62);
-      backdrop-filter: blur(10px);
+      letter-spacing: .12em;
       font-size: .74rem;
-      font-weight: 800;
-    }
-
-    .guess-list {
-      display: grid;
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .guess {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      padding: 13px 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      background: rgba(255,255,255,.035);
-    }
-
-    .guess-avatar {
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      flex: 0 0 36px;
-      border-radius: 50%;
-      background: var(--findsy-purple);
       font-weight: 950;
     }
 
-    .guess span:nth-child(2) {
-      flex: 1;
+    .example-card h3 {
+      margin: 8px 0 24px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+    }
+
+    .guess-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .guess-chips span {
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
+      color: #d2cedd;
+      background: rgba(255,255,255,.035);
       font-weight: 850;
     }
 
-    .guess-result {
-      color: #ff7272;
-      font-weight: 950;
-    }
-
-    .guess.correct {
-      border-color: rgba(186,255,49,.26);
-      background: rgba(186,255,49,.065);
-    }
-
-    .guess.correct .guess-avatar {
+    .guess-chips .winner {
       color: #111;
+      border-color: var(--findsy-lime);
       background: var(--findsy-lime);
-    }
-
-    .guess.correct span:nth-child(2),
-    .guess.correct .guess-result {
-      color: var(--findsy-lime);
     }
 
     .features-grid {
@@ -424,15 +323,8 @@
       font-size: 1.5rem;
     }
 
-    .feature-card h3 {
-      margin-bottom: 12px;
-      font-size: 1.45rem;
-    }
-
-    .feature-card p {
-      margin: 0;
-      color: var(--findsy-soft);
-    }
+    .feature-card h3 { margin-bottom: 12px; font-size: 1.45rem; }
+    .feature-card p { margin: 0; color: var(--findsy-soft); }
 
     .privacy-strip {
       display: grid;
@@ -470,24 +362,15 @@
       white-space: nowrap;
     }
 
-    .findsy-footer {
-      background: #08070d;
-    }
+    .findsy-footer { background: #08070d; }
 
     @media (max-width: 960px) {
       .findsy-hero-grid,
-      .demo-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .findsy-logo-stage {
-        min-height: 320px;
-      }
-
+      .example-panel { grid-template-columns: 1fr; }
+      .findsy-logo-stage { min-height: 320px; }
       .findsy-logo-stage::before { width: min(62%, 340px); }
       .findsy-logo-stage::after { width: min(52%, 285px); }
       .findsy-logo-stage img { width: min(48%, 250px); }
-
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .feature-card:first-child { grid-column: 1 / -1; }
@@ -507,9 +390,6 @@
       .feature-card:first-child { grid-column: auto; }
       .step-card { min-height: 0; }
       .step-number { margin-bottom: 28px; }
-      .game-top { padding: 24px 22px 18px; }
-      .photo-demo { min-height: 270px; margin: 0 14px; }
-      .guess-list { padding: 14px; }
       .privacy-strip { grid-template-columns: 1fr; padding: 26px 22px; }
       .findsy-button { width: 100%; }
     }
@@ -523,10 +403,7 @@
     <div class="wrap nav">
       <a class="brand" href="../" aria-label="Bodge Job Apps home">
         <img src="../assets/bodge-job-logo.png" alt="" width="58" height="58">
-        <span>
-          <strong>Bodge Job</strong>
-          <small>APPS</small>
-        </span>
+        <span><strong>Bodge Job</strong><small>APPS</small></span>
       </a>
 
       <nav class="main-nav" aria-label="Findsy navigation">
@@ -540,10 +417,11 @@
     <section class="findsy-hero">
       <div class="wrap findsy-hero-grid">
         <div>
+          <div class="status-pill">Closed testing · Available soon</div>
           <div class="findsy-kicker">Family multiplayer game</div>
           <h1 class="findsy-title">Find<span>sy</span></h1>
           <p class="findsy-lead">Take a photo. Hide something in it. Give everyone the first letter. First to find it wins.</p>
-          <p class="findsy-summary">A modern, multiplayer spin on the classic idea of I Spy — built around your own photos, your own surroundings and the people you’re playing with.</p>
+          <p class="findsy-summary">A modern multiplayer spin on the classic idea of I Spy — built around your own photos, your own surroundings and the people you’re playing with.</p>
 
           <div class="findsy-tags" aria-label="Findsy features">
             <span>Multiplayer</span>
@@ -553,7 +431,7 @@
           </div>
         </div>
 
-        <div class="findsy-logo-stage" aria-hidden="true">
+        <div class="findsy-logo-stage">
           <img src="../assets/findsy-logo.png" alt="Findsy app icon" width="315" height="315">
         </div>
       </div>
@@ -596,49 +474,22 @@
     </section>
 
     <section class="findsy-section">
-      <div class="wrap demo-wrap">
-        <div class="demo-copy">
+      <div class="wrap example-panel">
+        <div class="example-copy">
           <p class="eyebrow">A round of Findsy</p>
           <h2>Beginning with T…</h2>
-          <p>The host has hidden a <strong>telescope</strong> somewhere in the photo. That word stays secret.</p>
-          <p>Everyone else sees only the image, the clue <strong>“Beginning with T”</strong> and a ticking clock.</p>
-          <p>Table? Television? Toaster? Keep looking. The first player to spot the telescope takes the round.</p>
+          <p>The main player has chosen <strong>telescope</strong> from their photo. That word stays secret while everyone else races to work it out.</p>
+          <p>Wrong guesses fall away. The first person to submit the right answer wins the round and gets the next turn.</p>
         </div>
 
-        <div class="game-card" aria-label="Example Findsy round">
-          <div class="game-top">
-            <div>
-              <span class="live-label">Your Findsy is live</span>
-              <h3>Beginning with T</h3>
-            </div>
-            <div class="timer">4:51</div>
-          </div>
-
-          <div class="photo-demo">
-            <span class="photo-demo-label">Can you spot it?</span>
-          </div>
-
-          <div class="guess-list">
-            <div class="guess">
-              <span class="guess-avatar">M</span>
-              <span>Table</span>
-              <span class="guess-result">×</span>
-            </div>
-            <div class="guess">
-              <span class="guess-avatar">J</span>
-              <span>Television</span>
-              <span class="guess-result">×</span>
-            </div>
-            <div class="guess">
-              <span class="guess-avatar">S</span>
-              <span>Toaster</span>
-              <span class="guess-result">×</span>
-            </div>
-            <div class="guess correct">
-              <span class="guess-avatar">M</span>
-              <span>Telescope</span>
-              <span class="guess-result">FOUND ✓</span>
-            </div>
+        <div class="example-card" aria-label="Example Findsy guesses">
+          <span class="example-letter">Clue</span>
+          <h3>Beginning with T</h3>
+          <div class="guess-chips">
+            <span>Table ×</span>
+            <span>Television ×</span>
+            <span>Toaster ×</span>
+            <span class="winner">Telescope ✓</span>
           </div>
         </div>
       </div>
@@ -693,10 +544,7 @@
       <div class="footer-brand">
         <a class="brand" href="../" aria-label="Bodge Job Apps home">
           <img src="../assets/bodge-job-logo.png" alt="" width="58" height="58">
-          <span>
-            <strong>Bodge Job</strong>
-            <small>APPS</small>
-          </span>
+          <span><strong>Bodge Job</strong><small>APPS</small></span>
         </a>
         <p class="small">Fun apps. Questionable engineering. Surprisingly functional.</p>
       </div>
@@ -704,6 +552,7 @@
       <div class="footer-links">
         <div>
           <strong>Findsy</strong>
+          <span class="small">Closed testing · Available soon</span>
           <a href="#how-it-works">How it works</a>
           <a href="privacy-policy/">Privacy Policy</a>
         </div>
