@@ -4,10 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111114">
-  <meta name="description" content="Just Three Words is a fast, simple party word game from Bodge Job Apps. Give the clue, make the guess — but you only get three words.">
+  <meta name="description" content="Just Three Words by Bodge Job Apps — a simple family storytelling app for bedtime and beyond. Currently in closed testing and available soon.">
   <title>Just Three Words | Bodge Job Apps</title>
   <link rel="icon" type="image/png" href="../assets/just-three-words-logo.png">
   <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .testing-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:18px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(184,244,60,.28);
+      background:rgba(184,244,60,.07);
+      color:var(--lime);
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      font-size:.72rem;
+      font-weight:900;
+    }
+    .testing-pill::before {
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--lime);
+      box-shadow:0 0 14px rgba(184,244,60,.55);
+    }
+    .status-card {
+      grid-column:1 / -1;
+      border-color:rgba(184,244,60,.18);
+      background:rgba(184,244,60,.04);
+    }
+    .status-card strong { color:var(--lime); }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -29,13 +61,17 @@
       <section class="app-page-hero">
         <img src="../assets/just-three-words-logo.png" alt="Just Three Words app icon">
         <div>
-          <p class="eyebrow">A Bodge Job game</p>
+          <div class="testing-pill">Closed testing · Available soon</div>
+          <p class="eyebrow">A Bodge Job family app</p>
           <h1>Just Three Words</h1>
-          <p class="app-tagline">Three words. That’s all you’ve got.</p>
+          <p class="app-tagline">Three random words. One story.</p>
           <p>
-            A quick-fire game of clues, guesses and very limited vocabulary. Describe the answer,
-            explain the idea or get your team onto the right track — but every clue has to fit into
-            just three words.
+            No imagination? No problem. Just Three Words gives you three random words and one simple challenge:
+            tell a story that connects all three.
+          </p>
+          <p>
+            It is designed to make bedtime storytelling easier, sillier and a little less repetitive —
+            especially on those evenings when nobody can think what the story should be about.
           </p>
           <div class="hero-actions">
             <a class="button" href="privacy-policy/">Privacy Policy</a>
@@ -46,19 +82,29 @@
 
       <section class="app-page-copy">
         <article class="info-card">
-          <p class="eyebrow">Simple rules</p>
-          <h2>Explain more with less.</h2>
+          <p class="eyebrow">How it works</p>
+          <h2>Get three words.</h2>
           <p>
-            The restriction is the game: you know what you want to say, but you only have three words
-            to make someone else understand it. Easy in theory. Surprisingly chaotic in practice.
+            Open the app and generate three random words. They might fit together naturally — or they might be
+            completely ridiculous. That is part of the fun.
           </p>
         </article>
+
         <article class="info-card">
-          <p class="eyebrow">Built for people</p>
-          <h2>Fast to learn. Easy to share.</h2>
+          <p class="eyebrow">Your challenge</p>
+          <h2>Connect them in a story.</h2>
           <p>
-            Designed for families, friends, parties and quick games whenever you have a few minutes to fill.
-            No rulebook marathon required.
+            Make up any story you like, as long as all three words make an appearance. Keep it short, turn it into
+            an epic adventure, or let the children decide where the story goes next.
+          </p>
+        </article>
+
+        <article class="info-card status-card">
+          <p class="eyebrow">Current release status</p>
+          <h2>Closed testing now. Available soon.</h2>
+          <p>
+            Just Three Words is currently being tested before its public Google Play release. It is not yet generally
+            available to download, but the public release is on the way.
           </p>
         </article>
       </section>
