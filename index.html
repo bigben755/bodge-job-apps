@@ -137,6 +137,46 @@
       .contact-intro { grid-template-columns:1fr; }
       .contact-intro > img { width:86px; height:86px; }
     }
+
+    .footer-bottom-row {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .footer-bottom-row > p { margin:0; }
+    .footer-bottom-divider { color:#50515b; }
+    .web-wizard-credit {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:inherit;
+      text-decoration:none;
+    }
+    .web-wizard-credit img {
+      width:auto;
+      height:42px;
+      object-fit:contain;
+      transition:transform .18s ease;
+    }
+    .web-wizard-credit:hover img { transform:scale(1.05); }
+    .web-wizard-copy {
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      line-height:1.15;
+    }
+    .web-wizard-copy > span { color:#7f818c; font-size:.68rem; }
+    .web-wizard-copy strong { color:#d8d9df; font-size:.78rem; margin-top:2px; }
+    .web-wizard-copy small { color:var(--lime); font-size:.66rem; margin-top:3px; }
+    .web-wizard-credit:hover .web-wizard-copy strong { color:#fff; }
+    .web-wizard-credit:hover .web-wizard-copy small { text-decoration:underline; }
+    @media (max-width:680px) {
+      .footer-bottom-row { flex-direction:column; gap:12px; text-align:center; }
+      .footer-bottom-divider { display:none; }
+      .web-wizard-copy { align-items:center; }
+    }
   </style>
 </head>
 <body>
@@ -436,7 +476,30 @@
     </div>
 
     <div class="wrap footer-bottom">
-      <p class="small">© 2026 Bodge Job Apps. Built with enthusiasm, caffeine and occasional bodging.</p>
+      <div class="footer-bottom-row">
+        <p class="small">© 2026 Bodge Job Apps. Built with enthusiasm, caffeine and occasional bodging.</p>
+
+        <span class="footer-bottom-divider" aria-hidden="true">|</span>
+
+        <a
+          class="web-wizard-credit"
+          href="https://thewebdesignwizard.co.uk/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Website by The Web Design Wizard"
+        >
+          <img
+            src="https://blackrodnow.com/webwizard.png"
+            alt="The Web Design Wizard"
+            loading="lazy"
+          >
+          <span class="web-wizard-copy">
+            <span>Website by</span>
+            <strong>The Web Design Wizard</strong>
+            <small>thewebdesignwizard.co.uk</small>
+          </span>
+        </a>
+      </div>
     </div>
   </footer>
 
