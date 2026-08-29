@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111114">
+  <meta name="description" content="SectionIQ by Bodge Job Apps — a rail performance insight app designed to capture journey, dwell and sectional running data with minimal distraction for operational users.">
+  <title>SectionIQ | Bodge Job Apps</title>
+  <link rel="icon" type="image/webp" href="../assets/sectioniq-logo.webp">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .testing-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:18px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(25,191,255,.30);
+      background:rgba(25,191,255,.07);
+      color:#58d8ff;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      font-size:.72rem;
+      font-weight:900;
+    }
+    .testing-pill::before {
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#58d8ff;
+      box-shadow:0 0 14px rgba(25,191,255,.55);
+    }
+    .status-card {
+      grid-column:1 / -1;
+      border-color:rgba(25,191,255,.18);
+      background:rgba(25,191,255,.04);
+    }
+    .status-card strong { color:#58d8ff; }
+    .data-note {
+      grid-column:1 / -1;
+      border-color:rgba(184,244,60,.18);
+      background:rgba(184,244,60,.035);
+    }
+    .data-note a { color:var(--lime); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../" aria-label="Bodge Job Apps home">
+        <img src="../assets/bodge-job-logo.png" alt="" width="58" height="58">
+        <span><strong>Bodge Job</strong><small>APPS</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../#about">About</a>
+        <a href="../#apps">Our Apps</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="app-page">
+    <div class="wrap app-page-shell">
+      <section class="app-page-hero">
+        <img src="../assets/sectioniq-logo.webp" alt="SectionIQ app icon">
+        <div>
+          <div class="testing-pill">In development</div>
+          <p class="eyebrow">Rail performance insight</p>
+          <h1>SectionIQ</h1>
+          <p class="app-tagline">See the section. Understand the performance.</p>
+          <p>
+            SectionIQ is being designed to turn an ordinary operational journey into useful performance data without
+            demanding constant interaction from the person carrying the device.
+          </p>
+          <p>
+            An authorised tester or operational user starts a recording session, puts the phone away and carries on
+            with the job. SectionIQ can then map the journey and derive station dwell, sectional running time, average
+            speed and other timing information for later review.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="privacy-policy/">Privacy Policy</a>
+            <a class="text-link" href="../#apps">Back to our apps</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="app-page-copy">
+        <article class="info-card">
+          <p class="eyebrow">Simple capture</p>
+          <h2>Start once. Let it run.</h2>
+          <p>
+            Recording is deliberately user-controlled. Start the session before the journey, allow SectionIQ to work
+            in the background, then stop it when the run is complete. The aim is useful data without creating another
+            operational distraction.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <p class="eyebrow">What it can measure</p>
+          <h2>Journey data that actually means something.</h2>
+          <p>
+            The planned analysis includes station arrival and departure timing, dwell time, sectional journey time,
+            average speed, route mapping and comparison of observed running against published timetable information.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <p class="eyebrow">Bigger picture</p>
+          <h2>Spot patterns across multiple runs.</h2>
+          <p>
+            SectionIQ is intended to support a central review view where authorised teams can combine journey data,
+            identify recurring delay points and distinguish isolated events from repeat operational patterns.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <p class="eyebrow">Built for context</p>
+          <h2>Performance data, not a blame button.</h2>
+          <p>
+            Railway performance is affected by infrastructure, signalling, passenger demand, regulation, rolling stock,
+            weather and many other factors. SectionIQ is designed to add evidence and context to operational analysis —
+            not to make automated employment decisions about individual people.
+          </p>
+        </article>
+
+        <article class="info-card data-note">
+          <p class="eyebrow">Location and privacy</p>
+          <h2>Tracking should be obvious and controlled.</h2>
+          <p>
+            SectionIQ is intended to collect location data only during an active recording session. It is not designed
+            for continuous off-duty location monitoring. Details of the intended data handling are set out in the
+            <a href="privacy-policy/">SectionIQ Privacy Policy</a>.
+          </p>
+        </article>
+
+        <article class="info-card status-card">
+          <p class="eyebrow">Current release status</p>
+          <h2>Prototype and development stage.</h2>
+          <p>
+            SectionIQ is currently being developed and tested. Features, data fields and deployment arrangements may
+            change before any production release, and the privacy documentation will be updated to match the final build.
+          </p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-bottom" style="margin-top:0">
+      <p class="small">© 2026 Bodge Job Apps. SectionIQ is a Bodge Job Apps product.</p>
+    </div>
+  </footer>
+</body>
+</html>
